@@ -1,0 +1,45 @@
+{
+    "words_to_learn": [
+        {
+            "english": "Cat",
+            "spanish": "Gato",
+            "score": 2
+        },
+        {
+            "english": "Dog",
+            "spanish": "Perro",
+            "score": 1
+        },
+        {
+            "english": "Health",
+            "spanish": "Salud",
+            "score": 1
+        },
+        {
+            "english": "Run down",
+            "spanish": "Agotado",
+            "score": 1
+        },
+        {
+            "english": "Plenty",
+            "spanish": "Mucha",
+            "score": 0
+        },
+        {
+            "english": "Gargle",
+            "spanish": "Gargaras",
+            "score": 0
+        }
+    ],
+    "words_learned": [
+        {
+            "english": "Red",
+            "spanish": "Rojo",
+            "score": 10
+        }
+    ],
+    "reviews_words": [],
+    "PreguntasWh": {
+        "What do you do?": ""
+    }
+}

@@ -1,4 +1,4 @@
-## Practica Ingles 
+## Practica Inglés 
 
 Pequeño programita que me va a permitir estudiar las palabras en ingles y español. 
 

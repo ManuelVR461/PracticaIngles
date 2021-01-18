@@ -21,7 +21,7 @@ class Aplicacion(QMainWindow):
         self.reviewWords=[]
         self.scoreWords=[]
         self.docs = []
-        self.seguir = True
+        self.seguir = False
         self.initUI()
         self.initSystem()
 
@@ -31,35 +31,51 @@ class Aplicacion(QMainWindow):
         self.setMinimumSize(self.size[0], self.size[1])
         self.setMaximumSize(self.size[0], self.size[1])
         centralWidget = QWidget()
+        self.verticalspace = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.columnas = QHBoxLayout()
+        
         self.groupColform = QGroupBox("Add Words")
+        self.groupColInit = QGroupBox("Init Practice")
+
         self.groupColWords = QGroupBox("Words Registed")
-        self.filasForm = QVBoxLayout()
+        self.filasCol1 = QVBoxLayout()
+
+        self.filasForm1 = QVBoxLayout()
+        self.filasForm2 = QVBoxLayout()
+        
         self.filasWords = QVBoxLayout()
+        
         self.lblEnglish = QLabel("English")
         self.lblSpanish = QLabel("Spanish")
         self.txtEnglish = QLineEdit()
         self.txtSpanish = QLineEdit()
         self.btnAdd = QPushButton('Add')
-        self.filasForm.addWidget(self.lblEnglish)
-        self.filasForm.addWidget(self.txtEnglish)
-        self.filasForm.addWidget(self.lblSpanish)
-        self.filasForm.addWidget(self.txtSpanish)
-        self.filasForm.addWidget(self.btnAdd)
-        self.verticalspace = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-        self.filasForm.addItem(self.verticalspace)
+        self.btnInit = QPushButton('Start!')
         self.chkIdioma = QCheckBox("In English")
         self.chkIdioma.setChecked(False)
-        self.chkIdioma.stateChanged.connect(lambda:self.changeMode(self.chkIdioma))
-        self.filasForm.addWidget(self.chkIdioma)
-        
+
+        self.filasForm1.addWidget(self.lblEnglish)
+        self.filasForm1.addWidget(self.txtEnglish)
+        self.filasForm1.addWidget(self.lblSpanish)
+        self.filasForm1.addWidget(self.txtSpanish)
+        self.filasForm1.addWidget(self.btnAdd)
+        self.filasForm2.addWidget(self.chkIdioma)
+        self.filasForm2.addWidget(self.btnInit)
+        self.filasForm2.addItem(self.verticalspace)
+
         self.listWords = QListWidget()
         self.filasWords.addWidget(self.listWords)
-        self.groupColform.setLayout(self.filasForm)
+        self.groupColform.setLayout(self.filasForm1)
+        self.groupColInit.setLayout(self.filasForm2)
+        self.filasCol1.addWidget(self.groupColform)
+        self.filasCol1.addWidget(self.groupColInit)
+
         self.groupColWords.setLayout(self.filasWords)
 
-        self.columnas.addWidget(self.groupColform)
+        self.columnas.addLayout(self.filasCol1)
+        
         self.columnas.addWidget(self.groupColWords)
+        
         centralWidget.setLayout(self.columnas)
         self.setCentralWidget(centralWidget)
         self.show()
@@ -67,9 +83,22 @@ class Aplicacion(QMainWindow):
     def initSystem(self):
         self.show_pregunta.connect(self.window_question)
         self.btnAdd.clicked.connect(self.addWords)
+        self.btnInit.clicked.connect(self.initWords)
+        self.chkIdioma.stateChanged.connect(lambda:self.changeMode(self.chkIdioma))
         self.read_Dictionary()
-        preguntar = threading.Thread(name='Preguntas', target=self.initQuestions)
-        preguntar.start()
+    
+    def initWords(self):
+        if self.seguir: 
+            print("starting...")
+            self.seguir = False
+            self.btnInit.setText("Start!")
+        else:
+            print("stoping...")
+            self.seguir = True
+            self.btnInit.setText("Stop!")
+            preguntar = threading.Thread(name='Preguntas', target=self.initQuestions)
+            preguntar.start()
+
 
     def changeMode(self,chk):
         if chk.isChecked() == True:
@@ -116,12 +145,17 @@ class Aplicacion(QMainWindow):
             json.dump(self.docs, file, indent=4)
 
     def initQuestions(self):
-        print("iniciado...")
+        print("init Questions...")
+        j=0
+        espera = 30
         while self.seguir:
-            espera = random.randrange(60)
-            print("en servicio {}".format(espera))
-            self.show_pregunta.emit()
-            time.sleep(espera)
+            print("time {}".format(j))
+            if espera == j:
+                self.show_pregunta.emit()
+                j=0
+                espera = random.randrange(120)
+            time.sleep(1)
+            j = j + 1
             
     def addWords(self):
         word1 = self.txtEnglish.text().lower().capitalize()
@@ -142,6 +176,7 @@ class Aplicacion(QMainWindow):
     def update_main_score(self,update_words):
         self.scoreWords = update_words
         self.update_doc()
+        self.read_Dictionary()
     
     def update_doc(self):
         self.docs['words_learned'] = []

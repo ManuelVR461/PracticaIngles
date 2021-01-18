@@ -13,7 +13,7 @@
         {
             "english": "Health",
             "spanish": "Salud",
-            "score": 1
+            "score": 2
         },
         {
             "english": "Run down",
@@ -26,19 +26,265 @@
             "score": 0
         },
         {
-            "english": "Gargle",
-            "spanish": "Gargaras",
+            "english": "A desk",
+            "spanish": "Un escritorio",
+            "score": 0
+        },
+        {
+            "english": "A map",
+            "spanish": "Un mapa",
+            "score": 0
+        },
+        {
+            "english": "A closet",
+            "spanish": "Un closet",
+            "score": 0
+        },
+        {
+            "english": "A wastebasket",
+            "spanish": "Una papelera",
+            "score": 0
+        },
+        {
+            "english": "A table",
+            "spanish": "Una mesa",
+            "score": 0
+        },
+        {
+            "english": "A door",
+            "spanish": "Una puerta",
+            "score": 0
+        },
+        {
+            "english": "A window",
+            "spanish": "Una ventana",
+            "score": 0
+        },
+        {
+            "english": "Some posters",
+            "spanish": "Algunos carteles",
+            "score": 0
+        },
+        {
+            "english": "Some chairs",
+            "spanish": "Algunas sillas",
+            "score": 0
+        },
+        {
+            "english": "Some scissors",
+            "spanish": "Unas tijeras",
+            "score": 0
+        },
+        {
+            "english": "A drawer",
+            "spanish": "Una gaveta",
+            "score": 0
+        },
+        {
+            "english": "A computer",
+            "spanish": "Una computadora",
+            "score": 0
+        },
+        {
+            "english": "A tv",
+            "spanish": "Un televisor",
+            "score": 0
+        },
+        {
+            "english": "A calendar",
+            "spanish": "Un calendario",
+            "score": 0
+        },
+        {
+            "english": "A cd player",
+            "spanish": "Un reproductor de cd",
+            "score": 0
+        },
+        {
+            "english": "Some markers",
+            "spanish": "Unos marcadores",
+            "score": 0
+        },
+        {
+            "english": "An umbrella",
+            "spanish": "Una sombrilla",
+            "score": 0
+        },
+        {
+            "english": "Some keys",
+            "spanish": "Unas llaves",
+            "score": 0
+        },
+        {
+            "english": "On the wall",
+            "spanish": "En la pared",
+            "score": 0
+        },
+        {
+            "english": "On the floor",
+            "spanish": "En el piso",
+            "score": 0
+        },
+        {
+            "english": "Under the chairs",
+            "spanish": "Bajo las sillas",
+            "score": 0
+        },
+        {
+            "english": "On the chairs",
+            "spanish": "Sobre las sillas",
+            "score": 0
+        },
+        {
+            "english": "In the closet",
+            "spanish": "En el closet",
+            "score": 1
+        },
+        {
+            "english": "Next to the closet",
+            "spanish": "Al lado del closet",
+            "score": 1
+        },
+        {
+            "english": "In front of the board",
+            "spanish": "En frente de la pizarra",
+            "score": 0
+        },
+        {
+            "english": "The headphones",
+            "spanish": "Los audifonos",
+            "score": 0
+        },
+        {
+            "english": "The sunglasses",
+            "spanish": "Los lentes",
+            "score": 0
+        },
+        {
+            "english": "The bag",
+            "spanish": "El bolso",
+            "score": 0
+        },
+        {
+            "english": "Pocket",
+            "spanish": "Bolsillo",
+            "score": 0
+        },
+        {
+            "english": "The keys are in his pocket",
+            "spanish": "Las llaves estan en su bolsillo",
+            "score": 0
+        },
+        {
+            "english": "Papers",
+            "spanish": "Periodicos",
+            "score": 0
+        },
+        {
+            "english": "The papers are on the floor",
+            "spanish": "Los periodicos estan en el piso",
+            "score": 0
+        },
+        {
+            "english": "Coat",
+            "spanish": "Abrigo",
+            "score": 0
+        },
+        {
+            "english": "The coat is on the chair",
+            "spanish": "El abrigo esta sobre la silla",
+            "score": 0
+        },
+        {
+            "english": "A pen",
+            "spanish": "Un boligrafo",
+            "score": 0
+        },
+        {
+            "english": "Sick",
+            "spanish": "Enfermo",
+            "score": 0
+        },
+        {
+            "english": "Tomorrow",
+            "spanish": "Ma\u00f1ana",
+            "score": 1
+        },
+        {
+            "english": "Coat pocket",
+            "spanish": "Bolsillo del abrigo",
+            "score": 0
+        },
+        {
+            "english": "Eraser",
+            "spanish": "Borrador",
+            "score": 0
+        },
+        {
+            "english": "Some glasses",
+            "spanish": "Unos lentes",
+            "score": 0
+        },
+        {
+            "english": "Some pens",
+            "spanish": "Unos lapiceros",
+            "score": 0
+        },
+        {
+            "english": "Some books",
+            "spanish": "Unos libros",
+            "score": 0
+        },
+        {
+            "english": "Wallet",
+            "spanish": "Billetera",
+            "score": 0
+        },
+        {
+            "english": "Borrow",
+            "spanish": "Pedir prestado",
+            "score": 1
+        },
+        {
+            "english": "Pencil",
+            "spanish": "Lapiz",
+            "score": 1
+        },
+        {
+            "english": "Highlighter",
+            "spanish": "Resaltador",
+            "score": 0
+        },
+        {
+            "english": "Red",
+            "spanish": "Rojo",
             "score": 0
         }
     ],
     "words_learned": [
         {
-            "english": "Red",
-            "spanish": "Rojo",
+            "english": "On vacation",
+            "spanish": "De vacaciones",
             "score": 10
         }
     ],
-    "reviews_words": [],
+    "reviews_words": [
+        {
+            "english": "Today",
+            "spanish": "Hoy",
+            "score": -1
+        },
+        {
+            "english": "The door is locked",
+            "spanish": "La puerta esta cerrada",
+            "score": -1
+        },
+        {
+            "english": "Gargle",
+            "spanish": "Gargaras",
+            "score": -1
+        }
+    ],
     "PreguntasWh": {
         "What do you do?": ""
     }

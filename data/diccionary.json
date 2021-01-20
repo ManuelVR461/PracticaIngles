@@ -3,12 +3,12 @@
         {
             "english": "Cat",
             "spanish": "Gato",
-            "score": 2
+            "score": 3
         },
         {
             "english": "Dog",
             "spanish": "Perro",
-            "score": 1
+            "score": 2
         },
         {
             "english": "Health",
@@ -28,7 +28,7 @@
         {
             "english": "A desk",
             "spanish": "Un escritorio",
-            "score": 0
+            "score": 1
         },
         {
             "english": "A map",
@@ -48,22 +48,17 @@
         {
             "english": "A table",
             "spanish": "Una mesa",
-            "score": 0
-        },
-        {
-            "english": "A door",
-            "spanish": "Una puerta",
-            "score": 0
+            "score": 3
         },
         {
             "english": "A window",
             "spanish": "Una ventana",
-            "score": 0
+            "score": 2
         },
         {
             "english": "Some posters",
             "spanish": "Algunos carteles",
-            "score": 0
+            "score": 1
         },
         {
             "english": "Some chairs",
@@ -73,7 +68,7 @@
         {
             "english": "Some scissors",
             "spanish": "Unas tijeras",
-            "score": 0
+            "score": 1
         },
         {
             "english": "A drawer",
@@ -113,7 +108,7 @@
         {
             "english": "Some keys",
             "spanish": "Unas llaves",
-            "score": 0
+            "score": 1
         },
         {
             "english": "On the wall",
@@ -123,7 +118,7 @@
         {
             "english": "On the floor",
             "spanish": "En el piso",
-            "score": 0
+            "score": 1
         },
         {
             "english": "Under the chairs",
@@ -148,7 +143,7 @@
         {
             "english": "In front of the board",
             "spanish": "En frente de la pizarra",
-            "score": 0
+            "score": 2
         },
         {
             "english": "The headphones",
@@ -161,14 +156,9 @@
             "score": 0
         },
         {
-            "english": "The bag",
-            "spanish": "El bolso",
-            "score": 0
-        },
-        {
             "english": "Pocket",
             "spanish": "Bolsillo",
-            "score": 0
+            "score": 1
         },
         {
             "english": "The keys are in his pocket",
@@ -178,11 +168,6 @@
         {
             "english": "Papers",
             "spanish": "Periodicos",
-            "score": 0
-        },
-        {
-            "english": "The papers are on the floor",
-            "spanish": "Los periodicos estan en el piso",
             "score": 0
         },
         {
@@ -218,7 +203,7 @@
         {
             "english": "Eraser",
             "spanish": "Borrador",
-            "score": 0
+            "score": 1
         },
         {
             "english": "Some glasses",
@@ -238,7 +223,7 @@
         {
             "english": "Wallet",
             "spanish": "Billetera",
-            "score": 0
+            "score": 1
         },
         {
             "english": "Borrow",
@@ -258,20 +243,889 @@
         {
             "english": "Red",
             "spanish": "Rojo",
+            "score": 1
+        },
+        {
+            "english": "Nice to meet you",
+            "spanish": "Encantado de conocerte",
             "score": 0
-        }
-    ],
-    "words_learned": [
+        },
+        {
+            "english": "How are you",
+            "spanish": "Como estas tu",
+            "score": 0
+        },
+        {
+            "english": "Meet",
+            "spanish": "Conocer, encotrar",
+            "score": 0
+        },
+        {
+            "english": "See you",
+            "spanish": "Nos vemos",
+            "score": 0
+        },
+        {
+            "english": "See you soon",
+            "spanish": "Nos vemos pronto",
+            "score": 0
+        },
+        {
+            "english": "See you later",
+            "spanish": "Nos vemos mas tarde",
+            "score": 0
+        },
+        {
+            "english": "See you tomorrow",
+            "spanish": "Nos vemos ma\u00f1ana",
+            "score": 0
+        },
+        {
+            "english": "See you next week",
+            "spanish": "Nos vemos la proxima semana",
+            "score": 0
+        },
+        {
+            "english": "Have a nice day",
+            "spanish": "Que tengas un buen dia",
+            "score": 0
+        },
+        {
+            "english": "Have a good evening",
+            "spanish": "Que tengas buenas noches",
+            "score": 0
+        },
+        {
+            "english": "Listen",
+            "spanish": "Escucha",
+            "score": 0
+        },
+        {
+            "english": "Evening",
+            "spanish": "Noche",
+            "score": 0
+        },
+        {
+            "english": "Night",
+            "spanish": "Noche",
+            "score": 0
+        },
+        {
+            "english": "Morning",
+            "spanish": "En la ma\u00f1ana",
+            "score": 0
+        },
+        {
+            "english": "Afternoon",
+            "spanish": "En la tarde",
+            "score": 0
+        },
+        {
+            "english": "You too",
+            "spanish": "Tu tambien",
+            "score": 1
+        },
+        {
+            "english": "To record",
+            "spanish": "Grabar",
+            "score": 0
+        },
+        {
+            "english": "Record your voice",
+            "spanish": "Grabe su voz",
+            "score": 2
+        },
+        {
+            "english": "Voice",
+            "spanish": "Voz",
+            "score": 0
+        },
+        {
+            "english": "To choose",
+            "spanish": "Seleccionar, escoger, elegir",
+            "score": 0
+        },
+        {
+            "english": "To hide",
+            "spanish": "Esconder, ocultar",
+            "score": 0
+        },
+        {
+            "english": "To read",
+            "spanish": "Leer",
+            "score": 0
+        },
+        {
+            "english": "To look",
+            "spanish": "Buscar, mirar, ver",
+            "score": 0
+        },
+        {
+            "english": "Sentence",
+            "spanish": "Frase, sentencia, oracion",
+            "score": 1
+        },
+        {
+            "english": "To repeat",
+            "spanish": "Repetir",
+            "score": 0
+        },
+        {
+            "english": "To compare",
+            "spanish": "Comparar",
+            "score": 3
+        },
+        {
+            "english": "How do you say",
+            "spanish": "Como se dice",
+            "score": 0
+        },
+        {
+            "english": "To say",
+            "spanish": "Decir",
+            "score": 0
+        },
+        {
+            "english": "To do",
+            "spanish": "Hacer",
+            "score": 0
+        },
+        {
+            "english": "To write",
+            "spanish": "Escribir",
+            "score": 0
+        },
+        {
+            "english": "Classmates",
+            "spanish": "Compa\u00f1eros de clases",
+            "score": 2
+        },
+        {
+            "english": "Partner",
+            "spanish": "Compa\u00f1eros",
+            "score": 0
+        },
+        {
+            "english": "Below",
+            "spanish": "Abajo, debajo, por debajo",
+            "score": 0
+        },
+        {
+            "english": "To help",
+            "spanish": "Ayudar",
+            "score": 0
+        },
+        {
+            "english": "To use",
+            "spanish": "Usar, utilizar",
+            "score": 0
+        },
+        {
+            "english": "To copy",
+            "spanish": "Copiar",
+            "score": 0
+        },
+        {
+            "english": "New",
+            "spanish": "Nuevo",
+            "score": 0
+        },
+        {
+            "english": "To post",
+            "spanish": "Enviar",
+            "score": 1
+        },
+        {
+            "english": "To select",
+            "spanish": "Seleccionar",
+            "score": 0
+        },
+        {
+            "english": "Title",
+            "spanish": "Titulo",
+            "score": 0
+        },
+        {
+            "english": "To paste",
+            "spanish": "Pegar",
+            "score": 1
+        },
+        {
+            "english": "Into",
+            "spanish": "En, dentro de",
+            "score": 0
+        },
+        {
+            "english": "To add",
+            "spanish": "A\u00f1adir, poner, agregar",
+            "score": 0
+        },
+        {
+            "english": "To go",
+            "spanish": "Ir",
+            "score": 0
+        },
+        {
+            "english": "To step",
+            "spanish": "Pisar",
+            "score": 1
+        },
+        {
+            "english": "Step",
+            "spanish": "El paso, el escalon",
+            "score": 0
+        },
+        {
+            "english": "Outcomes",
+            "spanish": "Resultados",
+            "score": 0
+        },
+        {
+            "english": "To come",
+            "spanish": "Venir, llegar",
+            "score": 0
+        },
+        {
+            "english": "To show",
+            "spanish": "Mostrar",
+            "score": 0
+        },
+        {
+            "english": "Watch",
+            "spanish": "Reloj",
+            "score": 0
+        },
+        {
+            "english": "People",
+            "spanish": "Persona, gente, pueblo",
+            "score": 2
+        },
+        {
+            "english": "More",
+            "spanish": "Mas",
+            "score": 0
+        },
+        {
+            "english": "Than",
+            "spanish": "Que, de",
+            "score": 0
+        },
+        {
+            "english": "More than",
+            "spanish": "Mas que",
+            "score": 0
+        },
+        {
+            "english": "To own",
+            "spanish": "Tener, poseer",
+            "score": 0
+        },
+        {
+            "english": "Own",
+            "spanish": "Propio",
+            "score": 0
+        },
+        {
+            "english": "On your own",
+            "spanish": "Por tu cuenta",
+            "score": 1
+        },
+        {
+            "english": "Meeting",
+            "spanish": "Reunion, encuentro, sesion",
+            "score": 0
+        },
+        {
+            "english": "Before",
+            "spanish": "Antes de",
+            "score": 0
+        },
+        {
+            "english": "Before that",
+            "spanish": "Antes de que",
+            "score": 0
+        },
+        {
+            "english": "Before you go",
+            "spanish": "Antes de que te vallas",
+            "score": 0
+        },
+        {
+            "english": "School",
+            "spanish": "Escuela",
+            "score": 0
+        },
         {
             "english": "On vacation",
             "spanish": "De vacaciones",
-            "score": 10
+            "score": 9
+        },
+        {
+            "english": "My first name is",
+            "spanish": "Mi primer nombre es",
+            "score": 0
+        },
+        {
+            "english": "Everyone",
+            "spanish": "Todos, el mundo, cada uno",
+            "score": 0
+        },
+        {
+            "english": "To call",
+            "spanish": "Llamar",
+            "score": 1
+        },
+        {
+            "english": "But",
+            "spanish": "Pero, sino",
+            "score": 0
+        },
+        {
+            "english": "Middle",
+            "spanish": "Medio, el centro, la mitad",
+            "score": 0
+        },
+        {
+            "english": "To spell",
+            "spanish": "Deletrear, escribir",
+            "score": 0
+        },
+        {
+            "english": "Spell",
+            "spanish": "Hechizo, encanto",
+            "score": 0
+        },
+        {
+            "english": "To last",
+            "spanish": "Durar",
+            "score": 0
+        },
+        {
+            "english": "Last",
+            "spanish": "Ultimo, pasado",
+            "score": 0
+        },
+        {
+            "english": "At work",
+            "spanish": "En el trabajo",
+            "score": 0
+        },
+        {
+            "english": "At home",
+            "spanish": "En la casa",
+            "score": 1
+        },
+        {
+            "english": "Where are they?",
+            "spanish": "Donde estan ellos",
+            "score": 0
+        },
+        {
+            "english": "Same",
+            "spanish": "Mismo",
+            "score": 0
+        },
+        {
+            "english": "Class",
+            "spanish": "Clase",
+            "score": 0
+        },
+        {
+            "english": "To wait",
+            "spanish": "Esperar",
+            "score": 0
+        },
+        {
+            "english": "Too",
+            "spanish": "Tambien, demasiado, muy",
+            "score": 0
+        },
+        {
+            "english": "To figure",
+            "spanish": "Figurar, calcular",
+            "score": 0
+        },
+        {
+            "english": "Figure it out",
+            "spanish": "Averiguarlo",
+            "score": 0
+        },
+        {
+            "english": "I will just figure it out for myself",
+            "spanish": "Voy a averiguarlo por m\u00ed mismo",
+            "score": 0
+        },
+        {
+            "english": "Myself",
+            "spanish": "Mi mismo",
+            "score": 0
+        },
+        {
+            "english": "To build",
+            "spanish": "Construir",
+            "score": 0
+        },
+        {
+            "english": "At a gym",
+            "spanish": "En el gimnasio",
+            "score": 0
+        },
+        {
+            "english": "In a library",
+            "spanish": "En la libreria",
+            "score": 0
+        },
+        {
+            "english": "Just",
+            "spanish": "Solo, justo",
+            "score": 0
+        },
+        {
+            "english": "Here",
+            "spanish": "Aqui, aca",
+            "score": 0
+        },
+        {
+            "english": "On business",
+            "spanish": "En negocios",
+            "score": 0
+        },
+        {
+            "english": "A beautiful day",
+            "spanish": "Un hermoso dia",
+            "score": 0
+        },
+        {
+            "english": "A student",
+            "spanish": "Un estudiante",
+            "score": 0
+        },
+        {
+            "english": "At a concert",
+            "spanish": "En un concierto",
+            "score": 0
+        },
+        {
+            "english": "At night",
+            "spanish": "En la noche",
+            "score": 0
+        },
+        {
+            "english": "It's a nice day",
+            "spanish": "Es un lindo dia",
+            "score": 0
+        },
+        {
+            "english": "How about you?",
+            "spanish": "Que hay de ti?",
+            "score": 0
+        },
+        {
+            "english": "How are you doing?",
+            "spanish": "Como estas?",
+            "score": 0
+        },
+        {
+            "english": "To mean",
+            "spanish": "Significar",
+            "score": 0
+        },
+        {
+            "english": "To ask",
+            "spanish": "Pedir, preguntar",
+            "score": 0
+        },
+        {
+            "english": "Less",
+            "spanish": "Menos",
+            "score": 0
+        },
+        {
+            "english": "Everyday",
+            "spanish": "Todos los dias",
+            "score": 0
+        },
+        {
+            "english": "Pretty",
+            "spanish": "Bonito, bastante",
+            "score": 0
+        },
+        {
+            "english": "To enjoy",
+            "spanish": "Disfrutar",
+            "score": 0
+        },
+        {
+            "english": "Well",
+            "spanish": "Bien",
+            "score": 0
+        },
+        {
+            "english": "Very",
+            "spanish": "Muy, tan",
+            "score": 0
+        },
+        {
+            "english": "In the cafeteria",
+            "spanish": "En la cafeteria",
+            "score": 0
+        },
+        {
+            "english": "Late",
+            "spanish": "Tarde",
+            "score": 0
+        },
+        {
+            "english": "Asleep",
+            "spanish": "Dormido",
+            "score": 0
+        },
+        {
+            "english": "Sleep",
+            "spanish": "Sue\u00f1o",
+            "score": 0
+        },
+        {
+            "english": "To sleep",
+            "spanish": "Dormir",
+            "score": 0
+        },
+        {
+            "english": "Short",
+            "spanish": "Corto, breve",
+            "score": 2
+        },
+        {
+            "english": "Absent",
+            "spanish": "Ausente",
+            "score": 0
+        },
+        {
+            "english": "Water bottle",
+            "spanish": "Botella de agua",
+            "score": 0
+        },
+        {
+            "english": "Snack",
+            "spanish": "Bocadillo",
+            "score": 0
+        },
+        {
+            "english": "Things",
+            "spanish": "Cosas",
+            "score": 0
+        },
+        {
+            "english": "Things in your bag",
+            "spanish": "Cosas en tu bolso",
+            "score": 0
+        },
+        {
+            "english": "To take",
+            "spanish": "Tomar",
+            "score": 0
+        },
+        {
+            "english": "Headphones",
+            "spanish": "Audifonos",
+            "score": 0
+        },
+        {
+            "english": "A board",
+            "spanish": "Un pizarron",
+            "score": 0
+        },
+        {
+            "english": "Shelf",
+            "spanish": "Estante",
+            "score": 0
+        },
+        {
+            "english": "To make",
+            "spanish": "Hacer",
+            "score": 0
+        },
+        {
+            "english": "Make",
+            "spanish": "Marca",
+            "score": 0
+        },
+        {
+            "english": "What page are we on?",
+            "spanish": "En que pagina estamos?",
+            "score": 0
+        },
+        {
+            "english": "Anyway",
+            "spanish": "De todos modos",
+            "score": 0
+        },
+        {
+            "english": "Aloud",
+            "spanish": "En voz alta",
+            "score": 0
+        },
+        {
+            "english": "Read the questions aloud",
+            "spanish": "Lea las preguntas en voz alta",
+            "score": 0
+        },
+        {
+            "english": "An actor",
+            "spanish": "Un actor",
+            "score": 0
+        },
+        {
+            "english": "A writer",
+            "spanish": "Un escritor",
+            "score": 0
+        },
+        {
+            "english": "A singer",
+            "spanish": "Un cantante",
+            "score": 0
+        },
+        {
+            "english": "An artist",
+            "spanish": "Un artista",
+            "score": 0
+        },
+        {
+            "english": "A celebrity",
+            "spanish": "Una celebridad",
+            "score": 0
+        },
+        {
+            "english": "A great team",
+            "spanish": "Un gran equipo",
+            "score": 0
+        },
+        {
+            "english": "An amazing voice",
+            "spanish": "Una asombrosa voz",
+            "score": 0
+        },
+        {
+            "english": "A band",
+            "spanish": "Una banda",
+            "score": 0
+        },
+        {
+            "english": "To issue",
+            "spanish": "Emitir, expedir",
+            "score": 0
+        },
+        {
+            "english": "He's my favorite actor",
+            "spanish": "El es mi actor favorito",
+            "score": 0
+        },
+        {
+            "english": "What else is on?",
+            "spanish": "Que mas hay?",
+            "score": 0
+        },
+        {
+            "english": "Else",
+            "spanish": "Mas",
+            "score": 0
+        },
+        {
+            "english": "Besides",
+            "spanish": "Ademas",
+            "score": 0
+        },
+        {
+            "english": "Instead",
+            "spanish": "En lugar, en vez",
+            "score": 0
+        },
+        {
+            "english": "About",
+            "spanish": "Sobre, acerca de, de, unos",
+            "score": 0
+        },
+        {
+            "english": "Some",
+            "spanish": "Algunos, algunas, algun",
+            "score": 0
+        },
+        {
+            "english": "Always",
+            "spanish": "Siempre",
+            "score": 0
+        },
+        {
+            "english": "My best friend",
+            "spanish": "Mi mejor amigo",
+            "score": 0
+        },
+        {
+            "english": "My boss",
+            "spanish": "Mi jefe",
+            "score": 0
+        },
+        {
+            "english": "My co-worker",
+            "spanish": "My compa\u00f1ero de trabajo",
+            "score": 0
+        },
+        {
+            "english": "Smart",
+            "spanish": "Inteligente",
+            "score": 0
+        },
+        {
+            "english": "Lazy",
+            "spanish": "Perezoso",
+            "score": 0
+        },
+        {
+            "english": "Quiet",
+            "spanish": "Tranquilo",
+            "score": 0
+        },
+        {
+            "english": "Shy",
+            "spanish": "Timido",
+            "score": 1
+        },
+        {
+            "english": "Fun",
+            "spanish": "Diversion",
+            "score": 0
+        },
+        {
+            "english": "Friendly",
+            "spanish": "Amable, amistoso",
+            "score": 0
+        },
+        {
+            "english": "Outgoing",
+            "spanish": "Saliente",
+            "score": 0
+        },
+        {
+            "english": "Interesting",
+            "spanish": "Interesante",
+            "score": 0
+        },
+        {
+            "english": "Neighbor",
+            "spanish": "Compa\u00f1ero",
+            "score": 0
+        },
+        {
+            "english": "Really",
+            "spanish": "Realmente, en realidad",
+            "score": 0
+        },
+        {
+            "english": "Son",
+            "spanish": "Hijo",
+            "score": 0
+        },
+        {
+            "english": "I'm always busy",
+            "spanish": "Siempre estoy ocupado",
+            "score": 0
+        },
+        {
+            "english": "I'm at my job",
+            "spanish": "Estoy en mi trabajo",
+            "score": 0
+        },
+        {
+            "english": "Tired",
+            "spanish": "Cansado",
+            "score": 0
+        },
+        {
+            "english": "I'm tired",
+            "spanish": "Estoy cansado",
+            "score": 0
+        },
+        {
+            "english": "Hard",
+            "spanish": "Duro, dificil",
+            "score": 0
+        },
+        {
+            "english": "Easy",
+            "spanish": "Facil",
+            "score": 0
+        },
+        {
+            "english": "This is hard work. it's not easy",
+            "spanish": "Este es un trabajo duro. no es facil",
+            "score": 0
+        },
+        {
+            "english": "Strict",
+            "spanish": "Estricto",
+            "score": 0
+        },
+        {
+            "english": "She's strict",
+            "spanish": "Ella es estricta",
+            "score": 0
+        },
+        {
+            "english": "I'm sleepy.",
+            "spanish": "Tengo sue\u00f1o",
+            "score": 0
+        },
+        {
+            "english": "To know",
+            "spanish": "Saber",
+            "score": 0
+        },
+        {
+            "english": "How is your new job?",
+            "spanish": "Como es tu nuevo trabajo?",
+            "score": 0
+        },
+        {
+            "english": "To talk",
+            "spanish": "Hablar",
+            "score": 0
+        },
+        {
+            "english": "Talk",
+            "spanish": "Conversacion",
+            "score": 0
         }
     ],
+    "words_learned": [],
     "reviews_words": [
         {
-            "english": "Today",
-            "spanish": "Hoy",
+            "english": "The papers are on the floor",
+            "spanish": "Los periodicos estan en el piso",
+            "score": -1
+        },
+        {
+            "english": "A door",
+            "spanish": "Una puerta",
+            "score": -1
+        },
+        {
+            "english": "The bag",
+            "spanish": "El bolso",
+            "score": -1
+        },
+        {
+            "english": "To out",
+            "spanish": "Fuera, hacia fuera",
+            "score": -1
+        },
+        {
+            "english": "To watch",
+            "spanish": "Ver, mirar, observar",
+            "score": -1
+        },
+        {
+            "english": "Still",
+            "spanish": "Todavia",
             "score": -1
         },
         {
@@ -282,7 +1136,7 @@
         {
             "english": "Gargle",
             "spanish": "Gargaras",
-            "score": -1
+            "score": -2
         }
     ],
     "PreguntasWh": {

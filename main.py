@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QPushButton, QCheckBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QPushButton, QCheckBox, QRadioButton
 from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QWidget, QDialogButtonBox
 from PyQt5.QtWidgets import QLabel, QLineEdit, QSpacerItem, QSizePolicy, QTextEdit, QComboBox, QListWidget, QListWidgetItem
 from PyQt5.QtGui import QFont 
@@ -9,6 +9,7 @@ import json
 import threading
 import time
 import random
+import traceback
 
 
 class Aplicacion(QMainWindow):
@@ -22,18 +23,22 @@ class Aplicacion(QMainWindow):
         self.scoreWords=[]
         self.docs = []
         self.seguir = False
+        self.accion = "add"
+        self.mode = "english"
+        self.index_word = 0
         self.initUI()
         self.initSystem()
 
     def initUI(self):
         self.setWindowTitle('Practica Vocabulario 1.0')
-        self.size = 615, 515
+        self.size = 800, 600
         self.setMinimumSize(self.size[0], self.size[1])
         self.setMaximumSize(self.size[0], self.size[1])
         centralWidget = QWidget()
         self.verticalspace = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.columnas = QHBoxLayout()
-        
+        self.colRadios = QHBoxLayout()
+
         self.groupColform = QGroupBox("Add Words")
         self.groupColInit = QGroupBox("Init Practice")
 
@@ -51,15 +56,25 @@ class Aplicacion(QMainWindow):
         self.txtSpanish = QLineEdit()
         self.btnAdd = QPushButton('Add')
         self.btnInit = QPushButton('Start!')
-        self.chkIdioma = QCheckBox("In English")
-        self.chkIdioma.setChecked(False)
 
         self.filasForm1.addWidget(self.lblEnglish)
         self.filasForm1.addWidget(self.txtEnglish)
         self.filasForm1.addWidget(self.lblSpanish)
         self.filasForm1.addWidget(self.txtSpanish)
         self.filasForm1.addWidget(self.btnAdd)
-        self.filasForm2.addWidget(self.chkIdioma)
+
+        self.RadioIdioma = QRadioButton("In English")
+        self.RadioIdioma.setChecked(False)
+        self.RadioIdioma.idioma = "english"
+        self.RadioIdioma.toggled.connect(self.changeMode)
+        self.colRadios.addWidget(self.RadioIdioma)
+        self.RadioIdioma = QRadioButton("In Spanish")
+        self.RadioIdioma.setChecked(False)
+        self.RadioIdioma.idioma = "spanish"
+        self.RadioIdioma.toggled.connect(self.changeMode)
+        self.colRadios.addWidget(self.RadioIdioma)
+        self.filasForm2.addLayout(self.colRadios)
+
         self.filasForm2.addWidget(self.btnInit)
         self.filasForm2.addItem(self.verticalspace)
 
@@ -84,27 +99,26 @@ class Aplicacion(QMainWindow):
         self.show_pregunta.connect(self.window_question)
         self.btnAdd.clicked.connect(self.addWords)
         self.btnInit.clicked.connect(self.initWords)
-        self.chkIdioma.stateChanged.connect(lambda:self.changeMode(self.chkIdioma))
+        self.listWords.itemClicked.connect(self.editWords)
         self.read_Dictionary()
     
     def initWords(self):
         if self.seguir: 
-            print("starting...")
+            print("stoping...")
             self.seguir = False
             self.btnInit.setText("Start!")
         else:
-            print("stoping...")
+            print("starting...")
             self.seguir = True
             self.btnInit.setText("Stop!")
             preguntar = threading.Thread(name='Preguntas', target=self.initQuestions)
             preguntar.start()
 
 
-    def changeMode(self,chk):
-        if chk.isChecked() == True:
-            self.mode = "english"
-        else:
-            self.mode = "spanish"
+    def changeMode(self):
+        radioButton = self.sender()
+        if radioButton.isChecked():
+            self.mode = radioButton.idioma
         
 
     def read_Dictionary(self):
@@ -119,7 +133,7 @@ class Aplicacion(QMainWindow):
                 self.englishWords.append(words['english'])
                 self.spanishWords.append(words['spanish'])
                 self.scoreWords.append(words['score'])
-                w = QListWidgetItem("{} - {} = {}".format(words['english'],words['spanish'],words['score']))
+                w = QListWidgetItem("{} - {} - {}".format(words['english'],words['spanish'],words['score']))
                 w.setForeground(Qt.blue)
                 self.listWords.addItem(w)
             
@@ -127,7 +141,7 @@ class Aplicacion(QMainWindow):
                 self.englishWords.append(words['english'])
                 self.spanishWords.append(words['spanish'])
                 self.scoreWords.append(words['score'])
-                w = QListWidgetItem("{} - {} = {}".format(words['english'],words['spanish'],words['score']))
+                w = QListWidgetItem("{} - {} - {}".format(words['english'],words['spanish'],words['score']))
                 w.setForeground(Qt.green)
                 self.listWords.addItem(w)
             
@@ -135,10 +149,11 @@ class Aplicacion(QMainWindow):
                 self.englishWords.append(words['english'])
                 self.spanishWords.append(words['spanish'])
                 self.scoreWords.append(words['score'])
-                w = QListWidgetItem("{} - {} = {}".format(words['english'],words['spanish'],words['score']))
+                w = QListWidgetItem("{} - {} - {}".format(words['english'],words['spanish'],words['score']))
                 #w.setBackground( QColor('#6392E4'))
                 w.setForeground(Qt.red)
                 self.listWords.addItem(w)
+                self.listWords.sortItems()
             
     def update_Dictionary(self):
         with open('data/diccionary.json', 'w') as file:
@@ -158,19 +173,46 @@ class Aplicacion(QMainWindow):
             j = j + 1
             
     def addWords(self):
-        word1 = self.txtEnglish.text().lower().capitalize()
-        word2 = self.txtSpanish.text().lower().capitalize()
-        if word1 == '' or word2 == '':
-            QMessageBox.information(self, "WARNING!","Los Campos no deben estar vacios!")
-            return False
-            
-        self.englishWords.append(str(word1))
-        self.spanishWords.append(str(word2))
-        self.scoreWords.append(0)
-        self.txtEnglish.setText("")
-        self.txtSpanish.setText("")
-        self.update_doc()
-        self.read_Dictionary()
+        try:
+            word1 = self.txtEnglish.text().lower().capitalize()
+            word2 = self.txtSpanish.text().lower().capitalize()
+            if word1 == '' or word2 == '':
+                QMessageBox.information(self, "WARNING!","Los Campos no deben estar vacios!")
+                return False
+
+            if self.accion == "add":        
+                self.englishWords.append(str(word1))
+                self.spanishWords.append(str(word2))
+                self.scoreWords.append(0)
+            else:
+                self.englishWords[self.index_word] = str(word1)
+                self.spanishWords[self.index_word] = str(word2)
+                self.accion = "add"
+                self.btnAdd.setText("Add")
+
+            self.txtEnglish.setText("")
+            self.txtSpanish.setText("")
+            self.update_doc()
+            self.read_Dictionary()
+        except Exception as e:
+            tb = sys.exc_info()[2]
+            tbinfo = traceback.format_tb(tb)[0]
+            print(str(tbinfo))
+        
+
+    def editWords(self):
+        try:
+            word = []
+            word = self.listWords.currentItem().text().split("-")
+            self.txtEnglish.setText(word[0].strip())
+            self.txtSpanish.setText(word[1].strip())
+            self.index_word = self.englishWords.index(word[0].strip())
+            self.accion = "Editar"
+            self.btnAdd.setText("Update")
+        except Exception as e:
+            tb = sys.exc_info()[2]
+            tbinfo = traceback.format_tb(tb)[0]
+            print(str(tbinfo))
 
     @pyqtSlot(list)
     def update_main_score(self,update_words):
@@ -201,7 +243,7 @@ class Aplicacion(QMainWindow):
     def window_question(self):
         w = MyQuestions(self)
         w.update_score.connect(self.update_main_score)
-        w.palabra(english=self.englishWords,spanish=self.spanishWords,score=self.scoreWords)
+        w.palabra(english=self.englishWords,spanish=self.spanishWords,score=self.scoreWords,mode=self.mode)
         w.show()
 
     def closeEvent(self, event):
@@ -224,7 +266,6 @@ class MyQuestions(QDialog):
         self.size = 615, 515
         self.setMinimumSize(self.size[0], self.size[1])
         self.setMaximumSize(self.size[0], self.size[1])
-        self.mode="english"
         self.setAutoFillBackground(True)
         self.index=0
         self.words_actual = []
@@ -240,20 +281,7 @@ class MyQuestions(QDialog):
         self.fSpanish = QVBoxLayout()
         self.lblSpanish = QLabel()
         self.lblSpanish.setFont(QFont('Arial', 46)) 
-
-
-        if self.mode == "spanish":
-            self.fEnglish.addWidget(self.lblEnglish)
-            self.groupColEnglish.setLayout(self.fEnglish)
-            self.fSpanish.addWidget(self.input_word)
-            self.groupColSpanish.setLayout(self.fSpanish)
-        else:
-            self.fEnglish.addWidget(self.input_word)
-            self.groupColEnglish.setLayout(self.fEnglish)
-            self.fSpanish.addWidget(self.lblSpanish)
-            self.groupColSpanish.setLayout(self.fSpanish)
-
-
+        
         self.filas.addWidget(self.groupColEnglish)
         self.filas.addWidget(self.groupColSpanish)
         
@@ -285,6 +313,19 @@ class MyQuestions(QDialog):
         self.words_actual = kwargs
         self.lblEnglish.setText(kwargs['english'][self.index])
         self.lblSpanish.setText(kwargs['spanish'][self.index])
+        self.mode = kwargs['mode']
+        print(self.mode)
+        if self.mode == "spanish":
+            self.fEnglish.addWidget(self.lblEnglish)
+            self.groupColEnglish.setLayout(self.fEnglish)
+            self.fSpanish.addWidget(self.input_word)
+            self.groupColSpanish.setLayout(self.fSpanish)
+        else:
+            self.fEnglish.addWidget(self.input_word)
+            self.groupColEnglish.setLayout(self.fEnglish)
+            self.fSpanish.addWidget(self.lblSpanish)
+            self.groupColSpanish.setLayout(self.fSpanish)
+        
 
     def procesar(self):
         word1 = self.input_word.text().lower()
@@ -295,6 +336,7 @@ class MyQuestions(QDialog):
             score = score + 1
         else:
             score = score - 1
+            
 
         self.words_actual['score'][self.index] = score
         self.update_score.emit(self.words_actual['score'])

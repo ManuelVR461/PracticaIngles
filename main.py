@@ -52,6 +52,8 @@ class Aplicacion(QMainWindow):
         
         self.lblEnglish = QLabel("English")
         self.lblSpanish = QLabel("Spanish")
+        self.lbltime = QLabel("Next question in: 0s")
+        self.lbltime.setFont(QFont('Arial', 28))
         self.txtEnglish = QLineEdit()
         self.txtSpanish = QLineEdit()
         self.btnAdd = QPushButton('Add')
@@ -64,7 +66,7 @@ class Aplicacion(QMainWindow):
         self.filasForm1.addWidget(self.btnAdd)
 
         self.RadioIdioma = QRadioButton("In English")
-        self.RadioIdioma.setChecked(False)
+        self.RadioIdioma.setChecked(True)
         self.RadioIdioma.idioma = "english"
         self.RadioIdioma.toggled.connect(self.changeMode)
         self.colRadios.addWidget(self.RadioIdioma)
@@ -77,6 +79,7 @@ class Aplicacion(QMainWindow):
 
         self.filasForm2.addWidget(self.btnInit)
         self.filasForm2.addItem(self.verticalspace)
+        self.filasForm2.addWidget(self.lbltime)
 
         self.listWords = QListWidget()
         self.filasWords.addWidget(self.listWords)
@@ -104,16 +107,14 @@ class Aplicacion(QMainWindow):
     
     def initWords(self):
         if self.seguir: 
-            print("stoping...")
             self.seguir = False
             self.btnInit.setText("Start!")
+            self.lbltime.setText("Next question in: 0s")
         else:
-            print("starting...")
             self.seguir = True
             self.btnInit.setText("Stop!")
             preguntar = threading.Thread(name='Preguntas', target=self.initQuestions)
             preguntar.start()
-
 
     def changeMode(self):
         radioButton = self.sender()
@@ -160,17 +161,21 @@ class Aplicacion(QMainWindow):
             json.dump(self.docs, file, indent=4)
 
     def initQuestions(self):
-        print("init Questions...")
         j=0
         espera = 30
+        randon_time = 300
         while self.seguir:
-            print("time {}".format(j))
             if espera == j:
                 self.show_pregunta.emit()
                 j=0
-                espera = random.randrange(120)
+                espera = random.randrange(randon_time)
+
+            self.lbltime.setText("Next question in: {}s".format(espera - j))
             time.sleep(1)
             j = j + 1
+            if j > randon_time:
+                j =  0
+                espera = 30
             
     def addWords(self):
         try:
@@ -263,7 +268,7 @@ class MyQuestions(QDialog):
     def __init__(self, *args, **kwargs):
         super(MyQuestions, self).__init__(*args, **kwargs)
         self.setWindowTitle('Pregunta Aleatoria')
-        self.size = 615, 515
+        self.size = 815, 215
         self.setMinimumSize(self.size[0], self.size[1])
         self.setMaximumSize(self.size[0], self.size[1])
         self.setAutoFillBackground(True)
@@ -274,13 +279,13 @@ class MyQuestions(QDialog):
 
         self.fEnglish = QVBoxLayout()
         self.lblEnglish = QLabel()
-        self.lblEnglish.setFont(QFont('Arial', 46)) 
+        self.lblEnglish.setFont(QFont('Arial', 28)) 
         self.groupColEnglish = QGroupBox("in English")
         
         self.groupColSpanish = QGroupBox("in Spanish")
         self.fSpanish = QVBoxLayout()
         self.lblSpanish = QLabel()
-        self.lblSpanish.setFont(QFont('Arial', 46)) 
+        self.lblSpanish.setFont(QFont('Arial', 28)) 
         
         self.filas.addWidget(self.groupColEnglish)
         self.filas.addWidget(self.groupColSpanish)
@@ -296,15 +301,7 @@ class MyQuestions(QDialog):
         self.setTopLevelWindow()
     
     def setTopLevelWindow(self):    
-        if self.windowState() != Qt.WindowMaximized:
-            self.showMaximized()
-            self.showNormal()
-
-        else:
-            self.showNormal()
-            self.showMaximized()
-
-        self.raise_()
+        self.showMaximized()
         self.activateWindow()
 
     def palabra(self, **kwargs):
@@ -314,7 +311,6 @@ class MyQuestions(QDialog):
         self.lblEnglish.setText(kwargs['english'][self.index])
         self.lblSpanish.setText(kwargs['spanish'][self.index])
         self.mode = kwargs['mode']
-        print(self.mode)
         if self.mode == "spanish":
             self.fEnglish.addWidget(self.lblEnglish)
             self.groupColEnglish.setLayout(self.fEnglish)
@@ -330,24 +326,80 @@ class MyQuestions(QDialog):
     def procesar(self):
         word1 = self.input_word.text().lower()
         word2 = self.lblEnglish.text().lower()
+        word3 = self.lblSpanish.text().lower()
         score = self.words_actual['score'][self.index]
-        
         if word1 == word2:
             score = score + 1
         else:
             score = score - 1
-            
+            if self.mode == "spanish":
+                self.correctWord(word3)
+            else:
+                self.correctWord(word2)
 
         self.words_actual['score'][self.index] = score
         self.update_score.emit(self.words_actual['score'])
         self.close()
 
     def rechazar(self):
-        print("rechazar")
+        word2 = self.lblEnglish.text().lower()
+        word3 = self.lblSpanish.text().lower()
         score = self.words_actual['score'][self.index]
         score = score - 1
         self.words_actual['score'][self.index] = score
         self.update_score.emit(self.words_actual['score'])
+        if self.mode == "spanish":
+            self.correctWord(word3)
+        else:
+            self.correctWord(word2)
+        self.close()
+
+    def correctWord(self,w1):
+        winfo = MyInfos(self)
+        winfo.palabra(word=w1)
+        winfo.show()
+
+class MyInfos(QDialog):
+    def __init__(self, *args, **kwargs):
+        super(MyInfos, self).__init__(*args, **kwargs)
+        self.setWindowTitle('Info Word!')
+        self.size = 815, 215
+        self.setMinimumSize(self.size[0], self.size[1])
+        self.setMaximumSize(self.size[0], self.size[1])
+        self.setAutoFillBackground(True)
+        self.filas = QVBoxLayout()
+        self.fWord = QVBoxLayout()
+        self.lblWord = QLabel()
+        self.lblWord.setFont(QFont('Arial', 28)) 
+        self.groupColWord = QGroupBox("Correct Word")
+        self.filas.addWidget(self.groupColWord)
+        self.fWord.addWidget(self.lblWord)
+        self.groupColWord.setLayout(self.fWord)
+
+        buttons = QDialogButtonBox.Ok
+        self.buttonBox = QDialogButtonBox(buttons)
+        self.buttonBox.accepted.connect(self.procesar)
+        self.filas.addWidget(self.buttonBox)
+        self.setLayout(self.filas)
+        self.setTopLevelWindow()
+    
+    def setTopLevelWindow(self):    
+        if self.windowState() != Qt.WindowMaximized:
+            self.showMaximized()
+            self.showNormal()
+
+        else:
+            self.showNormal()
+            self.showMaximized()
+
+        self.raise_()
+        self.activateWindow()
+
+    def palabra(self, **kwargs):
+        self.lblWord.setText(kwargs['word'])
+        
+
+    def procesar(self):
         self.close()
 
 def main():
